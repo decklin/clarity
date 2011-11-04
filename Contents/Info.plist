@@ -2,40 +2,24 @@
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>English</string>
-	<key>CFBundleGetInfoString</key>
-	<string>Standard Colloquy Chat Style</string>
 	<key>CFBundleIdentifier</key>
-	<string>cc.javelin.colloquy.style.standard</string>
-	<key>CFBundleInfoDictionaryVersion</key>
-	<string>6.0</string>
+	<string>org.rupamsunyata.colloquy.style.clarity</string>
 	<key>CFBundleName</key>
-	<string>Standard</string>
+	<string>Clarity</string>
+	<key>CFBundleGetInfoString</key>
+	<string>Clarity Colloquy Chat Style</string>
+	<key>JVStyleDescription</key>
+	<string>Long description goes here</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Decklin Foster</string>
 	<key>CFBundlePackageType</key>
 	<string>coSt</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
 	<key>JVStyleOptions</key>
 	<array>
-		<dict>
-			<key>style</key>
-			<string>.member.self { color: %@ !important; }</string>
-			<key>default</key>
-			<string>#a21</string>
-			<key>description</key>
-			<string>Your name</string>
-			<key>type</key>
-			<string>color</string>
-		</dict>
-		<dict>
-			<key>style</key>
-			<string>.member { color: %@ !important; }</string>
-			<key>default</key>
-			<string>#f90</string>
-			<key>description</key>
-			<string>Room members</string>
-			<key>type</key>
-			<string>color</string>
-		</dict>
 		<dict>
 			<key>style</key>
 			<string>.envelope.highlight { background-color: %@ !important; }</string>
@@ -45,24 +29,6 @@
 			<string>Message highlight</string>
 			<key>type</key>
 			<string>color</string>
-		</dict>
-		<dict>
-			<key>style</key>
-			<array>
-				<string>.messageFadeIn { content: "off"; }</string>
-				<string>.messageFadeIn { content: "on"; }</string>
-			</array>
-			<key>default</key>
-			<integer>0</integer>
-			<key>description</key>
-			<string>Message fade</string>
-			<key>type</key>
-			<string>list</string>
-			<key>options</key>
-			<array>
-				<string>Off</string>
-				<string>On</string>
-			</array>
 		</dict>
 		<dict>
 			<key>style</key>
