@@ -18,9 +18,9 @@
 
   <xsl:template name="member-link">
     <xsl:param name="member" />
-    <xsl:variable name="hash" select="number(translate($member,
-      '-_^[]{}|ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
-      '012345678901234567890123456789012345678901234567890123456789'))" />
+    <xsl:variable name="magic">219078271633797408737459358</xsl:variable>
+    <xsl:variable name="normal" select="normalize-space(translate($member, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ-[]\`_^{|}', 'abcdefghijklmnopqrstuvwxyz          '))" />
+    <xsl:variable name="hash" select="number(translate($normal, 'abcdefghijklmnopqrstuvwxyz ', $magic))" />
 
     <xsl:variable name="memberClasses">
       <xsl:text>member</xsl:text>
