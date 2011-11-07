@@ -27,7 +27,6 @@
       <xsl:if test="sender/@self = 'yes' or ../sender/@self = 'yes'">
         <xsl:text> self</xsl:text>
       </xsl:if>
-      <xsl:value-of select="concat(' namehash-', $hash mod 32)" />
     </xsl:variable>
 
     <xsl:variable name="memberLink">
@@ -43,7 +42,7 @@
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    <a href="{$memberLink}" class="{$memberClasses}"><xsl:value-of select="$member" /></a>
+    <a href="{$memberLink}" class="{$memberClasses}" style="color: hsl({$hash mod 360}, 54%, 42%)"><xsl:value-of select="$member" /></a>
   </xsl:template>
 
   <xsl:template match="envelope | message">
