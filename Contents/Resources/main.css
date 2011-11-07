@@ -1,0 +1,39 @@
+body {
+  margin: 3px;
+  color: #1a1a1a;
+  background-color: #f5f5f5;
+}
+
+.envelope, .event {
+  overflow: hidden;
+}
+
+.envelope.highlight {
+  background-color: #e7e7e7;
+}
+
+.event {
+  color: #bbb;
+}
+
+.timestamp {
+  color: #ccc;
+  font-size: smaller;
+}
+
+.message {
+  float: left;
+  width: 75%;
+  word-wrap: break-word;
+}
+
+.action > .message {
+  color: #727272;
+}
+
+a.member {
+  text-decoration: none;
+}
+a.member:hover {
+  text-decoration: underline;
+}
