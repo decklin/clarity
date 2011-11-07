@@ -18,11 +18,16 @@
 
   <xsl:template name="member-link">
     <xsl:param name="member" />
+    <xsl:variable name="hash" select="number(translate($member,
+      '-_^[]{}|ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
+      '012345678901234567890123456789012345678901234567890123456789'))" />
+
     <xsl:variable name="memberClasses">
       <xsl:text>member</xsl:text>
       <xsl:if test="sender/@self = 'yes' or ../sender/@self = 'yes'">
         <xsl:text> self</xsl:text>
       </xsl:if>
+      <xsl:value-of select="concat(' namehash-', $hash mod 32)" />
     </xsl:variable>
 
     <xsl:variable name="memberLink">
