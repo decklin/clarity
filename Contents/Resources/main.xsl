@@ -143,11 +143,7 @@
     <xsl:variable name='hour' select='substring($date, 12, 2)' />
     <xsl:variable name='minute' select='substring($date, 15, 2)' />
     <xsl:choose>
-      <xsl:when test="contains($timeFormat,'H')">
-        <!-- 24hr format -->
-        <xsl:value-of select="concat($hour,':',$minute)" />
-      </xsl:when>
-      <xsl:otherwise>
+      <xsl:when test="contains($timeFormat,'a')">
         <!-- am/pm format -->
         <xsl:choose>
           <xsl:when test="number($hour) &gt; 12">
@@ -170,6 +166,10 @@
             <xsl:text>am</xsl:text>
           </xsl:otherwise>
         </xsl:choose>
+      </xsl:when>
+      <xsl:otherwise>
+        <!-- 24hr format -->
+        <xsl:value-of select="concat($hour,':',$minute)" />
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
