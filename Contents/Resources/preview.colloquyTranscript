@@ -34,4 +34,9 @@
     <sender self="yes">timothy</sender>
     <message received="2003-10-25 13:51:25 -0400">there you go <span class="emoticon wink"><samp>;)</samp></span> enjoy!</message>
   </envelope>
+  <envelope count="7">
+    <sender>a-very-long-nickname</sender>
+    <message received="2003-10-25 13:57:00 -0400">testing</message>
+    <message received="2003-10-25 13:57:01 -0400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce erat enim, rhoncus sed fermentum ut, sagittis ac leo. Vestibulum nec velit vel tortor ornare pharetra. Suspendisse potenti. Nam porta est eget mi feugiat vel commodo mauris sagittis.</message>
+  </envelope>
 </log>
