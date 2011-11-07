@@ -57,22 +57,30 @@
     <xsl:variable name="hostmask" select="sender/@hostmask | ../sender/@hostmask"/>
 
     <div id="{message[1]/@id | @id}" class="{$envelopeClasses}">
-      <span class="timestamp">
+      <div class="timestamp">
         <xsl:call-template name="short-time">
           <xsl:with-param name="date" select="message[1]/@received | @received" />
         </xsl:call-template>
-      </span>
-      <xsl:text> </xsl:text>
-      <xsl:choose>
-        <xsl:when test="message[1]/@action = 'yes' or @action = 'yes'">• </xsl:when>
-        <xsl:otherwise>&lt;</xsl:otherwise>
-      </xsl:choose>
-      <a href="{$memberLink}" title="{$hostmask}" class="{$senderClasses}"><xsl:value-of select="sender | ../sender" /></a>
-      <xsl:choose>
-        <xsl:when test="message[1]/@action = 'yes' or @action = 'yes'"><xsl:text> </xsl:text></xsl:when>
-        <xsl:otherwise>&gt; </xsl:otherwise>
-      </xsl:choose>
-      <span class="message">
+        <xsl:text> </xsl:text>
+      </div>
+      <div class="who">
+        <span class="dingbat">
+          <xsl:choose>
+            <xsl:when test="message[1]/@action = 'yes' or @action = 'yes'">• </xsl:when>
+            <xsl:otherwise>&lt;</xsl:otherwise>
+          </xsl:choose>
+        </span>
+        <a href="{$memberLink}" title="{$hostmask}" class="{$senderClasses}"><xsl:value-of select="sender | ../sender" /></a>
+        <span class="dingbat">
+          <xsl:choose>
+            <xsl:when test="message[1]/@action = 'yes' or @action = 'yes'">
+              <xsl:text> </xsl:text>
+            </xsl:when>
+            <xsl:otherwise>&gt; </xsl:otherwise>
+          </xsl:choose>
+        </span>
+      </div>
+      <div class="message">
         <xsl:choose>
           <xsl:when test="message[1]">
             <xsl:apply-templates select="message[1]/child::node()" mode="copy" />
@@ -81,7 +89,7 @@
             <xsl:apply-templates select="child::node()" mode="copy" />
           </xsl:otherwise>
         </xsl:choose>
-      </span>
+      </div>
     </div>
 
     <xsl:apply-templates select="message[position() &gt; 1]" />
@@ -89,24 +97,25 @@
 
   <xsl:template match="event">
     <div class="event">
-      <span class="timestamp">
+      <div class="timestamp">
         <xsl:call-template name="short-time">
           <xsl:with-param name="date" select="@occurred" />
         </xsl:call-template>
-      </span>
-      <xsl:text> </xsl:text>
-      <xsl:apply-templates select="message/child::node()" mode="event" />
-      <xsl:if test="string-length( reason )">
-        <span class="reason">
-          <xsl:text> (</xsl:text>
-          <xsl:apply-templates select="reason/child::node()" mode="copy"/>
-          <xsl:text>)</xsl:text>
-        </span>
-      </xsl:if>
+      </div>
+      <div class="message">
+        <xsl:apply-templates select="message/child::node()" mode="event" />
+        <xsl:if test="string-length(reason)">
+          <span class="reason">
+            <xsl:text> (</xsl:text>
+            <xsl:apply-templates select="reason/child::node()" mode="copy"/>
+            <xsl:text>)</xsl:text>
+          </span>
+        </xsl:if>
+      </div>
     </div>
   </xsl:template>
 
-  <xsl:template match="span[contains(@class,'member')]" mode="event">
+  <xsl:template match="div[contains(@class,'member')]" mode="event">
     <xsl:variable name="nickname" select="current()" />
     <xsl:choose>
       <xsl:when test="../../node()[node() = $nickname]/@hostmask">
@@ -126,7 +135,7 @@
     </xsl:choose>
   </xsl:template>
 
-  <xsl:template match="span[contains(@class,'member')]" mode="copy">
+  <xsl:template match="div[contains(@class,'member')]" mode="copy">
     <a href="member:{current()}"><xsl:copy-of select="@*" /><xsl:apply-templates select="current()/child::node()" mode="copy" /></a>
   </xsl:template>
 
