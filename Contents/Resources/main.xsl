@@ -42,7 +42,7 @@
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    <a href="{$memberLink}" class="{$memberClasses}" style="color: hsl({$hash mod 360}, 54%, 42%)"><xsl:value-of select="$member" /></a>
+    <a href="{$memberLink}" class="{$memberClasses}" style="color: hsl({$hash mod 359}, 54%, 42%)"><xsl:value-of select="$member" /></a>
   </xsl:template>
 
   <xsl:template match="envelope | message">
