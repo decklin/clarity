@@ -110,12 +110,14 @@
           <xsl:with-param name="date" select="message[1]/@occured | @occurred" />
         </xsl:call-template>
       </div>
-      <div class="who">
-        <xsl:text>◦ </xsl:text>
-        <xsl:call-template name="member-link">
-          <xsl:with-param name="member" select="who | ../who" />
-        </xsl:call-template>
-      </div>
+      <xsl:if test="who | ../who">
+        <div class="who">
+          <xsl:text>◦ </xsl:text>
+          <xsl:call-template name="member-link">
+            <xsl:with-param name="member" select="who | ../who" />
+          </xsl:call-template>
+        </div>
+      </xsl:if>
       <div class="message">
         <xsl:apply-templates select="message/child::node()" mode="event" />
         <xsl:if test="string-length(reason)">
