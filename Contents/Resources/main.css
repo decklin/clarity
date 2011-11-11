@@ -20,7 +20,7 @@ body {
 
 .timestamp {
   float: left;
-  width: 3.2em;
+  width: 3.25em;
   color: #ccc;
   font-size: smaller;
   padding: 1px 0;
@@ -28,7 +28,7 @@ body {
 
 .who {
   float: left;
-  width: 7.5em;
+  width: 8em;
   text-align: right;
 }
 
@@ -37,7 +37,7 @@ body {
 }
 
 .message {
-  margin-left: 10.8em;
+  margin-left: 11.5em;
   word-wrap: break-word;
 }
 
